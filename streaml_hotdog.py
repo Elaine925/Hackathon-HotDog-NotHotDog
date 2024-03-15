@@ -10,12 +10,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-
+model_path = "./MobileNet.h5"
+model = tf.keras.models.load_model(model_path)
 
 # Provide path to your pickled model file
-model_path = "../Hackathon-HotDog-NotHotDog/updated_mobilenet.sav"  
-with open(model_path, 'rb') as f:
-    model = pickle.load(f)
+# model_path = "../Hackupdated_mobilenet.sav"  
+# with open(model_path, 'rb') as f:
+#     model = pickle.load(f)
 
 def predict(image, model):
     # Resize image to match model input shape
@@ -33,6 +34,8 @@ def predict(image, model):
 st.title("Hot Dog or *NOT* Hot Dog :hotdog:")
 st.subheader(':blue[Delivered by *GIRLPOWER*] \n Nkechi Goodacre, Rajashree Choudhary, Elaine Chen :female-student:')
 
+
+
 def image_uploader():
     uploaded_image = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
@@ -42,8 +45,6 @@ def image_uploader():
         return image
     else:
         st.write("Please upload a hotdog image file.")
-
-
 
 uploaded_image = image_uploader()
 if uploaded_image is not None:
