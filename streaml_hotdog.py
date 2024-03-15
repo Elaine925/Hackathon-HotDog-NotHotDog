@@ -13,10 +13,10 @@ import matplotlib.pyplot as plt
 
 
 # Provide path to your pickled model file
-model_path = "../Hackupdated_mobilenet.sav"  
+model_path = "../Hackathon-HotDog-NotHotDog/updated_mobilenet.sav"  
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
-    
+
 def predict(image, model):
     # Resize image to match model input shape
     image = image.resize((224, 224))
