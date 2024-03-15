@@ -1,6 +1,5 @@
 import pickle
 import streamlit as st
-from streamlit_extras.let_it_rain import rain
 import tensorflow as tf
 
 import os
