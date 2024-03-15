@@ -49,7 +49,7 @@ if uploaded_image is not None:
     preprocessed_image = preprocess_image(image)
 
 
-    model = keras.models.load_model('./MobileNet.h5')
+    model = tf.keras.models.load_model('./MobileNet.h5')
     pred = model.predict(preprocessed_image)[0][0]
 
     
