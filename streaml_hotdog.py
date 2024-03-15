@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-import tensorflow 
+import tensorflow
 import os
 import shutil
 
@@ -8,13 +8,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from tensorflow import keras
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
-from tensorflow.keras.utils import image_dataset_from_directory
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.optimizers import RMSprop
-from tensorflow.keras import layers
 
+<<<<<<< HEAD
+# Provide path to your pickled model file
+model_path = "finalized_model.sav"  
+with open(model_path, 'rb') as f:
+    model = pickle.load(f)
+=======
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import GlobalAveragePooling2D, Dense, Dropout
@@ -27,6 +27,7 @@ from tensorflow.keras.utils import to_categorical
 def load_model(model_path):
     model = tensorflow.keras.models.load_model(model_path)
     return model
+>>>>>>> main
 
 def predict(image, model):
     # Resize image to match model input shape
@@ -54,10 +55,16 @@ def image_uploader():
     else:
         st.write("Please upload a hotdog image file.")
 
-# model_path = "./MobileNet.h5"  
-model_path_net = './MobileNet.h5'
-model = load_model(model_path_net)
+
 
 uploaded_image = image_uploader()
 if uploaded_image is not None:
-    st.write("You can process the uploaded image here.")
+    # Display uploaded image
+    image = Image.open(uploaded_image)
+    st.image(image, caption="Uploaded Image", use_column_width=True)
+
+    # Make predictions
+    if st.button("Classify"):
+        predictions = predict(image, model)
+        st.write("Predictions:")
+        st.write(predictions)
