@@ -1,6 +1,6 @@
 import pickle
 import streamlit as st
-from streamlit_extras.let_it_rain import rain
+
 import tensorflow as tf
 
 import os
@@ -15,6 +15,7 @@ from tensorflow.keras.layers import RandomFlip, RandomRotation, RandomZoom
 from tensorflow.keras.utils import image_dataset_from_directory
 from tensorflow.keras.applications.vgg16 import VGG16
 from keras.preprocessing.image import load_img, img_to_array
+from tensorflow.keras.layers import BatchNormalization
 
 from PIL import Image
 
@@ -49,7 +50,9 @@ if uploaded_image is not None:
     preprocessed_image = preprocess_image(image)
 
 
-    model = tf.keras.models.load_model('./MobileNet.h5')
+    model = tf.keras.models.load_model('./yc_model.h5', 
+                                        custom_objects=None,
+                                        compile=True)
     pred = model.predict(preprocessed_image)[0][0]
 
     
