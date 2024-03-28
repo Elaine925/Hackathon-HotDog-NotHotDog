@@ -47,7 +47,7 @@ st.subheader(':blue[Delivered by *GIRLPOWER*] \n Nkechi Goodacre, Rajashree Chou
 # Function to load and preprocess the image
 def preprocess_image(image):
     # Resize the image to match the input size of your CNN model
-    image = image.resize((256, 256))  # Assuming your model expects 224x224 input
+    image = image.resize((255, 255))  # Assuming your model expects 224x224 input
     # Convert the image to a numpy array
     image = np.array(image)
     # Normalize the pixel values to be in the range [0, 1]
@@ -68,13 +68,13 @@ if uploaded_image is not None:
     preprocessed_image = preprocess_image(image)
 
     # load model
-    with open('yc_model.pkl', 'rb') as f:
-        classifier = pickle.load(f)
+    # with open('Models/yc_model.pkl', 'rb') as f:
+    #     classifier = pickle.load(f)
 
     # model_path = "./yc_model.pkl"  
     # with open(model_path, 'rb') as f:
-    #   model = pickle.load(f)
-    # model = tf.keras.models.load_model('./yc_model.h5')
+    # model = pickle.load(f)
+    model = tf.keras.models.load_model('./Models/model_autotune_test.h5')
     if st.button('Hot Dog?'):
         with st.spinner('Predicting...'):
             time.sleep(5)
