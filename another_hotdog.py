@@ -54,7 +54,7 @@ if uploaded_image is not None:
 
     # base_model = MobileNetV2(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
     # base_model.trainable = False  # Freeze layers
-    model = tf.keras.models.load_model('./Models/yc_model_k.keras', 
+    model = tf.keras.models.load_model('yc_model_k.keras', 
                                         custom_objects=None,
                                         compile=False)
     pred = model.predict(preprocessed_image)[0][0]
