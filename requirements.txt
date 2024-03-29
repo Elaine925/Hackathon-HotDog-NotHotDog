@@ -3,7 +3,7 @@
 # requests
 
 # Core
-streamlit==1.24.1
+streamlit== 0.82.0
 
 # Utils
 openai
@@ -11,8 +11,10 @@ transformers
 keybert
 plotly
 
-tensorflow==2.10.0
+tensorflow-cpu==2.5.0
 tensorboard==2.10.1
+keras == 2.4.2
+pillow==8.2.0
 causalimpact
 # fbprophet
 torch
