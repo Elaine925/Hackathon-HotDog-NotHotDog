@@ -54,14 +54,14 @@ if uploaded_image is not None:
 
     # base_model = MobileNetV2(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
     # base_model.trainable = False  # Freeze layers
-    model = tf.keras.models.load_model('./Models/my_model.keras', 
+    model = tf.keras.models.load_model('./Models/yc_model_k.keras', 
                                         custom_objects=None,
                                         compile=True)
     pred = model.predict(preprocessed_image)[0][0]
 
     
-    if (pred < 0.5):
-        st.write("It is NOT a Hot Dog")
+    if (pred > 0.5):
+        st.write("It is Not a Hot Dog")
     else: 
         st.write("It is a Hot Dog!")
 
