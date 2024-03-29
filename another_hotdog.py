@@ -56,7 +56,7 @@ if uploaded_image is not None:
     # base_model.trainable = False  # Freeze layers
     model = tf.keras.models.load_model('./Models/yc_model_k.keras', 
                                         custom_objects=None,
-                                        compile=True)
+                                        compile=False)
     pred = model.predict(preprocessed_image)[0][0]
 
     
